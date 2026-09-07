@@ -578,7 +578,7 @@ class Avanza:
 
         Args:
 
-            instrument_type: can be STOCK, FUND, BOND etc
+            instrument_type: can be ANY, STOCK, FUND, BOND etc
 
             query: can be a ISIN, name or tickerSymbol
 
@@ -586,9 +586,13 @@ class Avanza:
 
         """
 
+        search_filter = []
+        if instrument_type != InstrumentType.ANY:
+            search_filter.append(instrument_type.value.upper())
+
         options = {
             "query": query,
-            "searchFilter": {"types": [instrument_type.value.upper()]},
+            "searchFilter": {"types": search_filter},
             "pagination": {"from": 0, "size": limit},
         }
         result = self.__call(
