@@ -61,7 +61,7 @@ class Avanza:
                     {
                         'username': 'MY_USERNAME',
                         'password': 'MY_PASSWORD',
-                        'totpCode': 'MY_TOTP_CODE'
+                        'totpToken': 'MY_TOTP_CODE'
                     }
 
             retry_with_next_otp: If
